@@ -1,0 +1,1152 @@
+/* Главная страница книжного магазина в пастельных тонах */
+
+:root {
+    /* Основная цветовая палитра */
+    --ivory: #f8f5f0;
+    --light-gray: #f0f0f0;
+    --pearl: #e8e6e1;
+    --cloud: #f9f9f9;
+    --linen: #faf6f0;
+    --stone: #e8e8e8;
+    
+    /* Акцентные цвета */
+    --soft-blue: #a8c3d5;
+    --dusty-rose: #d4b8b8;
+    --sage: #b8c4b8;
+    --warm-gray: #a8a8a8;
+    
+    /* Текст */
+    --charcoal: #2c2c2c;
+    --slate: #4a4a4a;
+}
+
+/* Герой-секция */
+.hero-section {
+    background: linear-gradient(135deg, var(--linen) 0%, var(--pearl) 100%);
+    color: var(--charcoal);
+    padding: 30px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    background: 
+        radial-gradient(circle at 20% 80%, var(--soft-blue) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, var(--dusty-rose) 0%, transparent 50%);
+    opacity: 0.08;
+}
+
+.hero-title {
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    color: var(--charcoal);
+    font-family: 'Georgia', serif;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    color: var(--slate);
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.hero-actions .btn {
+    padding: 12px 30px;
+    font-weight: 500;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.hero-actions .btn-primary {
+    background-color: var(--soft-blue);
+    border-color: var(--soft-blue);
+    color: white;
+}
+
+.hero-actions .btn-primary:hover {
+    background-color: #95b5c9;
+    border-color: #95b5c9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(168, 195, 213, 0.3);
+}
+
+.hero-actions .btn-outline-light {
+    border-color: var(--soft-blue);
+    color: var(--soft-blue);
+    background: transparent;
+}
+
+.hero-actions .btn-outline-light:hover {
+    background-color: var(--soft-blue);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.hero-stats {
+    margin-top: 3rem;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid var(--stone);
+}
+
+.stat-item {
+    text-align: center;
+    padding: 10px;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--soft-blue);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--slate);
+    font-weight: 500;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    /* border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); */
+    transition: transform 0.5s ease;
+    width: 600px;
+    height: 650px;
+}
+
+.hero-image img:hover {
+    transform: scale(1.02);
+}
+
+.hero-image::before {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: var(--dusty-rose);
+    border-radius: 50%;
+    opacity: 0.1;
+    top: -20px;
+    left: -20px;
+    z-index: -1;
+}
+
+.hero-image::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: var(--sage);
+    border-radius: 50%;
+    opacity: 0.1;
+    bottom: -20px;
+    right: -20px;
+    z-index: -1;
+}
+
+/* Секции */
+.featured-section,
+.new-books-section,
+.categories-section {
+    padding: 80px 0;
+    background-color: var(--cloud);
+}
+
+.discount-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--pearl) 0%, var(--linen) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.discount-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23a8c3d5' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.3;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    font-family: 'Georgia', serif;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--soft-blue), var(--sage));
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    color: var(--slate);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Стили для кликабельных карточек */
+.book-card-featured,
+.discount-card,
+.new-book-card,
+.category-card-inner,
+.benefit-card {
+    position: relative;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+.book-info,
+.new-book-info {
+    padding-bottom: 70px !important; /* чтобы цена не исчезала */
+}
+
+
+/* Кликабельные ссылки */
+.book-card-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Изображения в карточках */
+.book-image,
+.discount-image,
+.new-book-image {
+    border-radius: 8px 8px 0 0;
+    position: relative;
+}
+
+.book-image img,
+.discount-image img,
+.new-book-image img {
+    transition: transform 0.5s ease;
+}
+
+.book-card-featured:hover img,
+.discount-card:hover img,
+.new-book-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Z-index для элементов поверх ссылки */
+.z-2 { z-index: 2; }
+.z-3 { z-index: 3; }
+
+/* Улучшенные карточки */
+.book-card-featured,
+.discount-card,
+.new-book-card {
+    background: white;
+    border: 1px solid #e9ecef;
+}
+
+.category-card-inner:hover,
+.benefit-card:hover {
+    border-color: #0d6efd;
+}
+
+/* Адаптивность изображений */
+@media (max-width: 768px) {
+    .book-image,
+    .discount-image,
+    .new-book-image {
+        height: 200px !important;
+    }
+    
+    .book-image img,
+    .discount-image img,
+    .new-book-image img {
+        padding: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-image,
+    .discount-image,
+    .new-book-image {
+        height: 180px !important;
+    }
+    
+    .book-image img,
+    .discount-image img,
+    .new-book-image img {
+        padding: 8px !important;
+    }
+}
+
+/* Карточки рекомендуемых книг */
+.book-card-featured {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    border: 1px solid var(--stone);
+}
+
+.book-card-featured:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: var(--soft-blue);
+}
+
+.book-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+    background: var(--light-gray);
+}
+
+.book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.book-card-featured:hover .book-image img {
+    transform: scale(1.05);
+}
+
+.featured-badge-home {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--sage);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 12px;
+    z-index: 2;
+}
+
+.discount-badge-home {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--dusty-rose);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 12px;
+    z-index: 2;
+}
+
+.book-info {
+    padding: 20px;
+}
+
+.book-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+    line-height: 1.3;
+    height: 2.6em;
+    overflow: hidden;
+}
+
+.book-author {
+    color: var(--slate);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.book-price {
+    margin-bottom: 15px;
+}
+
+.current-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--sage);
+}
+
+.old-price {
+    font-size: 0.95rem;
+    color: var(--warm-gray);
+    text-decoration: line-through;
+    margin-left: 8px;
+}
+
+.book-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.book-actions .btn {
+    flex: 1;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 8px 12px;
+}
+
+.book-actions .btn-outline-primary {
+    border-color: var(--soft-blue);
+    color: var(--soft-blue);
+}
+
+.book-actions .btn-outline-primary:hover {
+    background-color: var(--soft-blue);
+    color: white;
+}
+
+.book-actions .btn-primary {
+    background-color: var(--soft-blue);
+    border-color: var(--soft-blue);
+}
+
+.book-actions .btn-primary:hover {
+    background-color: #95b5c9;
+    border-color: #95b5c9;
+}
+
+/* Карточки скидок */
+.discount-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100%;
+    border: 1px solid var(--stone);
+}
+
+.discount-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: var(--dusty-rose);
+}
+
+.discount-percent {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--dusty-rose);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    z-index: 2;
+}
+
+.discount-image {
+    height: 180px;
+    overflow: hidden;
+    background: var(--light-gray);
+}
+
+.discount-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.discount-info {
+    padding: 20px;
+}
+
+.discount-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 5px;
+    height: 2.8em;
+    overflow: hidden;
+    line-height: 1.4;
+}
+
+.discount-author {
+    color: var(--slate);
+    font-size: 0.85rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.discount-price {
+    margin-bottom: 15px;
+}
+
+.new-price {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--dusty-rose);
+    display: block;
+}
+
+.old-price {
+    font-size: 0.95rem;
+    color: var(--warm-gray);
+    text-decoration: line-through;
+}
+
+.discount-card .btn {
+    width: 100%;
+    background-color: var(--dusty-rose);
+    border-color: var(--dusty-rose);
+    color: white;
+    border-radius: 6px;
+    font-weight: 500;
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.discount-card .btn:hover {
+    background-color: #c9a8a8;
+    border-color: #c9a8a8;
+    transform: translateY(-2px);
+}
+
+/* Новинки */
+.new-book-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.04);
+    transition: all 0.3s ease;
+    height: 100%;
+    position: relative;
+    border: 1px solid var(--stone);
+}
+
+.new-book-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.new-book-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: var(--soft-blue);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 11px;
+    z-index: 2;
+}
+
+.new-book-image {
+    height: 160px;
+    overflow: hidden;
+    background: var(--light-gray);
+}
+
+.new-book-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.new-book-card:hover .new-book-image img {
+    transform: scale(1.05);
+}
+
+.new-book-info {
+    padding: 15px;
+}
+
+.new-book-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 5px;
+    height: 2.6em;
+    overflow: hidden;
+    line-height: 1.3;
+}
+
+.new-book-author {
+    color: var(--slate);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    font-style: italic;
+}
+
+.new-book-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+}
+
+.new-book-actions .btn {
+    width: 100%;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-color: var(--stone);
+    color: var(--slate);
+}
+
+.new-book-actions .btn:hover {
+    border-color: var(--soft-blue);
+    color: var(--soft-blue);
+    background-color: rgba(168, 195, 213, 0.1);
+}
+
+
+
+/* Преимущества */
+.benefits-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--linen) 0%, var(--pearl) 100%);
+}
+
+.benefit-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    height: 100%;
+    transition: all 0.3s ease;
+    border: 1px solid var(--stone);
+}
+
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-color: var(--soft-blue);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--soft-blue);
+}
+
+.benefit-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+}
+
+.benefit-card p {
+    color: var(--slate);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* О нас */
+.about-section {
+    background: linear-gradient(135deg, var(--cloud) 0%, var(--pearl) 100%);
+    padding: 80px 0;
+}
+
+.about-badge {
+    background: linear-gradient(135deg, var(--soft-blue) 0%, var(--sage) 100%);
+    z-index: 2;
+    max-width: 120px;
+}
+
+.about-image {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.about-content h3 {
+    color: var(--charcoal);
+    /* font-family: 'Georgia', serif; */
+}
+
+.value-item {
+    background: white;
+    border: 1px solid var(--stone);
+    transition: all 0.3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-color: var(--soft-blue);
+}
+
+.value-icon {
+    font-size: 1.5rem;
+}
+
+.team-avatar img {
+    border: 2px solid var(--soft-blue);
+}
+
+/* Стили для формы отзыва */
+.rating-stars .star {
+    transition: all 0.2s ease;
+}
+
+.rating-stars .star:hover {
+    transform: scale(1.2);
+}
+
+.review-create .book-info {
+    background: linear-gradient(135deg, var(--pearl) 0%, var(--linen) 100%);
+    border: 1px solid var(--stone);
+}
+
+/* Стили для списка отзывов */
+.review-list .review-item {
+    transition: transform 0.3s ease;
+}
+
+.review-list .review-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Стили для отзывов на странице книги */
+#reviews .review-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+}
+
+#reviews .review-item {
+    transition: background-color 0.3s ease;
+}
+
+#reviews .review-item:hover {
+    background-color: rgba(var(--soft-blue-rgb), 0.05);
+}
+
+/* Статусы отзывов */
+.badge.bg-warning {
+    background-color: var(--soft-blue) !important;
+}
+
+.badge.bg-success {
+    background-color: var(--sage) !important;
+}
+
+.badge.bg-danger {
+    background-color: var(--dusty-rose) !important;
+}
+
+/* Цвета для аватаров */
+.bg-soft-blue {
+    background-color: var(--soft-blue) !important;
+}
+
+.bg-dusty-rose {
+    background-color: var(--dusty-rose) !important;
+}
+
+.bg-sage {
+    background-color: var(--sage) !important;
+}
+
+.bg-warm-gray {
+    background-color: var(--warm-gray) !important;
+}
+
+/* Анимации для новых секций */
+.about-section,
+.reviews-section {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.about-section { animation-delay: 0.2s; }
+.reviews-section { animation-delay: 0.4s; }
+
+/* Адаптивность для новых секций */
+@media (max-width: 768px) {
+    .about-badge {
+        max-width: 100px;
+        padding: 10px !important;
+    }
+    
+    .value-item {
+        padding: 15px !important;
+    }
+    
+    .review-card {
+        padding: 20px !important;
+    }
+}
+
+/* Рассылка */
+.newsletter-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, var(--sage) 0%, rgba(184, 196, 184, 0.9) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.newsletter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+     pointer-events: none;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(168, 195, 213, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(212, 184, 184, 0.1) 0%, transparent 50%);
+}
+
+.newsletter-section h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--charcoal);
+    font-family: 'Georgia', serif;
+    position: relative;
+    display: inline-block;
+}
+
+.newsletter-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, var(--soft-blue), var(--sage));
+    border-radius: 2px;
+}
+
+.newsletter-section .lead {
+    color: var(--slate);
+    opacity: 0.9;
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.newsletter-form-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border: 1px solid var(--stone);
+}
+
+.newsletter-form {
+    width: 100%;
+}
+
+.newsletter-form-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.newsletter-input {
+    flex: 1;
+    padding: 15px 20px;
+    font-size: 1rem;
+    background: var(--cloud);
+    border: 2px solid var(--stone);
+    border-radius: 8px;
+    color: var(--charcoal);
+    transition: all 0.3s ease;
+}
+
+.newsletter-input:focus {
+    outline: none;
+    border-color: var(--soft-blue);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(168, 195, 213, 0.2);
+}
+
+.newsletter-button {
+    background-color: var(--soft-blue);
+    border: 2px solid var(--soft-blue);
+    color: white;
+    padding: 15px 30px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.newsletter-button:hover {
+    background-color: #95b5c9;
+    border-color: #95b5c9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(168, 195, 213, 0.3);
+}
+
+.newsletter-button:active {
+    transform: translateY(0);
+}
+
+.newsletter-agreement {
+    color: var(--slate);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.newsletter-agreement a {
+    color: var(--soft-blue);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--soft-blue);
+}
+
+.newsletter-agreement a:hover {
+    border-bottom: 1px solid var(--soft-blue);
+}
+
+/* Стили для активного состояния формы */
+.newsletter-form-group.focused .newsletter-input {
+    border-color: var(--soft-blue);
+    box-shadow: 0 0 0 3px rgba(168, 195, 213, 0.2);
+}
+
+/* Сообщения формы */
+#subscribe-message .alert {
+    border-radius: 8px;
+    border: none;
+    padding: 12px 15px;
+    margin-bottom: 0;
+}
+
+#subscribe-message .alert-success {
+    background-color: rgba(184, 196, 184, 0.2);
+    color: var(--sage);
+    border-left: 4px solid var(--sage);
+}
+
+#subscribe-message .alert-error {
+    background-color: rgba(212, 184, 184, 0.2);
+    color: var(--dusty-rose);
+    border-left: 4px solid var(--dusty-rose);
+}
+
+/* Плейсхолдер */
+.newsletter-input::placeholder {
+    color: var(--warm-gray);
+    opacity: 0.7;
+}
+
+/* Состояние disabled для кнопки */
+.newsletter-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.newsletter-button:disabled:hover {
+    background-color: var(--soft-blue);
+    border-color: var(--soft-blue);
+    box-shadow: none;
+}
+
+/* Анимация появления сообщения */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#subscribe-message .alert {
+    animation: slideDown 0.3s ease forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .newsletter-form-wrapper {
+        padding: 25px;
+        margin: 0 15px;
+    }
+    
+    .newsletter-form-group {
+        flex-direction: column;
+    }
+    
+    .newsletter-input {
+        width: 100%;
+    }
+    
+    .newsletter-button {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .newsletter-section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Кнопка "Смотреть все" */
+.btn-see-all {
+    background: transparent;
+    border: 2px solid var(--soft-blue);
+    color: var(--soft-blue);
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-see-all:hover {
+    background-color: var(--soft-blue);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .hero-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .hero-actions .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .img-fluid{
+        display: none;
+    }
+    
+    .book-actions {
+        flex-direction: column;
+    }
+    
+    .hero-stats {
+        padding: 15px;
+    }
+    
+    .stat-number {
+        font-size: 1.4rem;
+    }
+    
+    .category-icon {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .category-icon span {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 390px) {
+    .img-fluid{
+        display: none;
+    }
+}
+/* Задержки для анимаций */
+.book-card-featured,
+.discount-card,
+.new-book-card,
+.category-card,
+.benefit-card {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.book-card-featured:nth-child(1) { animation-delay: 0.1s; }
+.book-card-featured:nth-child(2) { animation-delay: 0.2s; }
+.book-card-featured:nth-child(3) { animation-delay: 0.3s; }
+.book-card-featured:nth-child(4) { animation-delay: 0.4s; }
+.book-card-featured:nth-child(5) { animation-delay: 0.5s; }
+.book-card-featured:nth-child(6) { animation-delay: 0.6s; }
+
+.discount-card:nth-child(1) { animation-delay: 0.1s; }
+.discount-card:nth-child(2) { animation-delay: 0.2s; }
+.discount-card:nth-child(3) { animation-delay: 0.3s; }
+.discount-card:nth-child(4) { animation-delay: 0.4s; }

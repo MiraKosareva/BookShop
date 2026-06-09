@@ -1,0 +1,314 @@
+/* Стили для профиля пользователя */
+
+:root {
+    --ivory: #f8f5f0;
+    --light-gray: #f0f0f0;
+    --pearl: #e8e6e1;
+    --cloud: #f9f9f9;
+    --linen: #faf6f0;
+    --stone: #e8e8e8;
+    --soft-blue: #a8c3d5;
+    --dusty-rose: #d4b8b8;
+    --sage: #b8c4b8;
+    --warm-gray: #a8a8a8;
+    --charcoal: #2c2c2c;
+    --slate: #4a4a4a;
+}
+
+/* Профиль */
+.profile-card {
+    border-radius: 15px;
+    border: 1px solid var(--stone);
+    overflow: hidden;
+}
+
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, var(--soft-blue), var(--sage));
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+}
+
+.customer-badge {
+    font-size: 0.9rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+    border: none;
+}
+
+.profile-stats .stat-item {
+    text-align: center;
+    padding: 10px;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--soft-blue);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--slate);
+    margin-top: 5px;
+}
+
+.contact-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--stone);
+}
+
+.contact-list li:last-child {
+    border-bottom: none;
+}
+
+.contact-icon {
+    font-size: 1.2rem;
+    width: 30px;
+    text-align: center;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.stat-box {
+    background: var(--cloud);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid var(--stone);
+}
+
+.stat-icon {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: var(--soft-blue);
+}
+
+.stat-number {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--charcoal);
+}
+
+.stat-text {
+    font-size: 0.9rem;
+    color: var(--slate);
+    margin-bottom: 5px;
+}
+
+.stat-text-small {
+    font-size: 0.85rem;
+    color: var(--soft-blue);
+    font-weight: 600;
+}
+
+/* Заказы */
+.order-card {
+    border: 1px solid var(--stone);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1) !important;
+    border-color: var(--soft-blue);
+}
+
+.order-summary {
+    background: var(--cloud);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--stone);
+}
+
+.order-address {
+    background: var(--linen);
+    padding: 12px;
+    border-radius: 6px;
+    border-left: 4px solid var(--sage);
+}
+
+/* Активность */
+.activity-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.activity-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--soft-blue);
+    opacity: 0.3;
+}
+
+.activity-item {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.activity-icon {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: white;
+    border: 2px solid var(--soft-blue);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+}
+
+.activity-content {
+    background: var(--cloud);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid var(--stone);
+}
+
+.activity-title {
+    font-weight: 600;
+    color: var(--charcoal);
+    margin-bottom: 5px;
+}
+
+.activity-time {
+    font-size: 0.85rem;
+    color: var(--warm-gray);
+    margin-bottom: 5px;
+}
+
+.activity-status {
+    font-size: 0.9rem;
+    color: var(--slate);
+}
+
+/* Пустые состояния */
+.empty-state-icon {
+    font-size: 4rem;
+    color: var(--soft-blue);
+    opacity: 0.5;
+}
+
+.empty-orders-icon {
+    font-size: 4rem;
+    color: var(--sage);
+    opacity: 0.5;
+}
+
+/* Таблица заказов */
+.table th {
+    font-weight: 600;
+    color: var(--slate);
+    border-bottom: 2px solid var(--stone);
+}
+
+.table td {
+    border-color: var(--stone);
+    vertical-align: middle;
+}
+
+.table-hover tbody tr:hover {
+    background-color: rgba(168, 195, 213, 0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .avatar-circle {
+        width: 80px;
+        height: 80px;
+        font-size: 1.8rem;
+    }
+    
+    .profile-name {
+        font-size: 1.3rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .activity-timeline {
+        padding-left: 20px;
+    }
+    
+    .activity-icon {
+        left: -20px;
+        width: 20px;
+        height: 20px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-card,
+.order-card,
+.activity-item {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Состояния заказов */
+.badge.bg-warning { background-color: #ffc107 !important; color: #000 !important; }
+.badge.bg-info { background-color: #0dcaf0 !important; }
+.badge.bg-primary { background-color: var(--soft-blue) !important; }
+.badge.bg-success { background-color: var(--sage) !important; }
+.badge.bg-danger { background-color: var(--dusty-rose) !important; }
+
+/* Аватар в профиле */
+.avatar-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--soft-blue) 0%, var(--dusty-rose) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.avatar-initials {
+    font-size: 2.5rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* Аватар с фото */
+.avatar-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--soft-blue);
+}
