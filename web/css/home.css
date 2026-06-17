@@ -1139,6 +1139,18 @@
     opacity: 0;
 }
 
+/* В бургер-меню показывать текст рядом с иконками */
+@media (max-width: 991px) {
+    .navbar-nav .nav-link {
+        font-size: 1rem;
+        padding: 0.75rem 1rem !important;
+    }
+    
+    .navbar-nav .badge {
+        margin-left: 5px;
+    }
+}
+
 .book-card-featured:nth-child(1) { animation-delay: 0.1s; }
 .book-card-featured:nth-child(2) { animation-delay: 0.2s; }
 .book-card-featured:nth-child(3) { animation-delay: 0.3s; }

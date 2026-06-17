@@ -36,9 +36,10 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     <?php $this->head() ?>
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> -->
     <!-- <link rel="stylesheet" href="/css/site.css">
     <link rel="stylesheet" href="/css/style.css"> -->
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
     
     <?php if (Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'index'): ?>
     <link href="/css/home.css" rel="stylesheet">
@@ -103,65 +104,54 @@ if (!Yii::$app->user->isGuest) {
                 </form>
                 
                 <!-- ИКОНКИ СПРАВА -->
-                <ul class="navbar-nav">
-                    <?php if (!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin()): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/admin/index" title="Панель администратора">
-                                <i class="fas fa-cogs"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                    <!-- Вход/Выход -->
-                    <?php if (Yii::$app->user->isGuest): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/site/login">
-                                <i class="fas fa-sign-in-alt"></i> Войти
-                            </a>
-                        </li>
-                    <?php else: ?>
-                        <li class="nav-item">
-                            <?= Html::beginForm(['/site/logout']) ?>
-                            <?= Html::submitButton(
-                                '<i class="fas fa-sign-out-alt"></i>',
-                                ['class' => 'nav-link btn btn-link']
-                            ) ?>
-                            <?= Html::endForm() ?>
-                        </li>
-                    <?php endif; ?>
-                    
-                    <!-- Избранное -->
-                    <li class="nav-item">
-                        <a class="nav-link position-relative" href="/wishlist/index" title="Избранное">
-                            <i class="fas fa-heart"></i>
-                            <?php if ($wishlistCount > 0): ?>
-                                <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" 
-                                      style="font-size: 0.6rem;">
-                                    <?= $wishlistCount ?>
-                                </span>
-                            <?php endif; ?>
-                        </a>
-                    </li>
-                    
-                    <!-- Корзина -->
-                    <li class="nav-item">
-                        <a class="nav-link position-relative" href="/cart/index" title="Корзина">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span id="cart-count" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success" 
-                                  style="font-size: 0.6rem;">
-                                <?= $cartCount ?>
-                            </span>
-                        </a>
-                    </li>
-                    
-                    <!-- Профиль -->
-                    <?php if (!Yii::$app->user->isGuest): ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/profile/index" title="Профиль">
-                                <i class="fas fa-user"></i>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                </ul>
+<ul class="navbar-nav">
+    <?php if (!Yii::$app->user->isGuest && Yii::$app->user->identity->isAdmin()): ?>
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/index">
+                <i class="fas fa-cogs me-1"></i> <span class="d-lg-none">Админ</span>
+            </a>
+        </li>
+    <?php endif; ?>
+
+    <?php if (Yii::$app->user->isGuest): ?>
+        <li class="nav-item">
+            <a class="nav-link" href="/site/login">
+                <i class="fas fa-sign-in-alt me-1"></i> <span class="d-lg-none">Войти</span>
+            </a>
+        </li>
+    <?php else: ?>
+        <li class="nav-item">
+            <a class="nav-link" href="/profile/index">
+                <i class="fas fa-user me-1"></i> <span class="d-lg-none">Профиль</span>
+            </a>
+        </li>
+        <!-- Избранное -->
+<li class="nav-item">
+    <a class="nav-link" href="/wishlist/index">
+        <i class="fas fa-heart me-1"></i><span class="d-lg-none">Избранное</span>
+        <?php if ($wishlistCount > 0): ?>
+            <span class="badge rounded-pill bg-danger ms-1"><?= $wishlistCount ?></span>
+        <?php endif; ?>
+    </a>
+</li>
+
+<!-- Корзина -->
+<li class="nav-item">
+    <a class="nav-link" href="/cart/index">
+        <i class="fas fa-shopping-cart me-1"></i><span class="d-lg-none">Корзина</span>
+        <span id="cart-count" class="badge rounded-pill bg-success ms-1"><?= $cartCount ?></span>
+    </a>
+</li>
+        <li class="nav-item">
+            <?= Html::beginForm(['/site/logout']) ?>
+            <?= Html::submitButton(
+                '<i class="fas fa-sign-out-alt me-1"></i> <span class="d-lg-none">Выйти</span>',
+                ['class' => 'nav-link btn btn-link']
+            ) ?>
+            <?= Html::endForm() ?>
+        </li>
+    <?php endif; ?>
+</ul>
             </div>
         </div>
     </nav>
@@ -188,7 +178,8 @@ if (!Yii::$app->user->isGuest) {
 
 <?php $this->endBody() ?>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+ <script src="/js/bootstrap.bundle.min.js"></script>
 <script src="/js/app.js"></script>
 
 <?php if ($this->context->id === 'cart'): ?>

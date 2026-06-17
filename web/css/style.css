@@ -236,11 +236,36 @@ textarea.form-control {
     color: var(--soft-blue) !important;
     background: rgba(168,195,213,0.08);
 }
-#cart-count {
+/* #cart-count {
     font-size: 0.75rem;
     padding: 0.25em 0.6em;
     border-radius: 10px;
     margin-left: 3px;
+} */
+
+/* #cart-count {
+    font-size: 0.65rem !important;
+    padding: 3px 6px !important;
+    border-radius: 10px;
+    display: inline-block;
+    position: static !important;
+    transform: none !important;
+    margin-left: 5px !important;
+    vertical-align: middle;
+    line-height: 1.2;
+}
+
+.nav-item .nav-link .badge {
+    position: static !important;
+    transform: none !important;
+} */
+
+#cart-count,
+.nav-link .badge {
+    font-size: 0.6rem !important;
+    padding: 2px 5px !important;
+    vertical-align: super !important;
+    position: static !important;
 }
 
 /* Поиск в навбаре */
